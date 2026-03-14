@@ -12,6 +12,16 @@ public class Automovil {
     private static int capacidadEstanqueEstatico = 30;
     private static int ultimoId;
 
+    // Valor que nunca va a cambiar en tu programa
+    public static final Integer VELOCIDAD_MAXIMA_CARRETERA = 120;
+    public static final int VELOCIDAD_MAXIMA_CIUDAD = 60;
+
+    public static final String COLOR_ROJO = "Rojo";
+    public static final String COLOR_AMARILLO = "Amarillo";
+    public static final String COLOR_AZUL = "Azul";
+    public static final String COLOR_BLANCO = "Blanco";
+    public static final String COLOR_GRIS = "Gris Oscuro";
+
     public Automovil() {
         this.id = ++ultimoId;
     }
