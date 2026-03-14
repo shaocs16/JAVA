@@ -1,16 +1,23 @@
 public class Automovil {
 
+    private int id;
     private String fabricante;
     private String modelo;
     private String color;
     private double cilindrada;
     private int capacidadTanque = 40;
 
-    public Automovil() {
+    // Hace que todos los nuevos objetos se creen tenga este atributo
+    private static String colorPatente = "Naranja";
+    private static int capacidadEstanqueEstatico = 30;
+    private static int ultimoId;
 
+    public Automovil() {
+        this.id = ++ultimoId;
     }
 
     public Automovil(String fabricante, String modelo) {
+        this();
         this.fabricante = fabricante;
         this.modelo = modelo;
     }
@@ -70,10 +77,36 @@ public class Automovil {
         this.cilindrada = cilindrada;
     }
 
+    public static String getColorPatente() {
+        return colorPatente;
+    }
+
+    public static void setColorPatente(String colorPatente) {
+        Automovil.colorPatente = colorPatente;
+    }
+
+    public static int getCapacidadEstanqueEstatico() {
+        return capacidadEstanqueEstatico;
+    }
+
+    public static void setCapacidadEstanqueEstatico(int capacidadEstanqueEstatico) {
+        Automovil.capacidadEstanqueEstatico = capacidadEstanqueEstatico;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String detalle() {
-        return "cilindrada " + this.cilindrada +
+        return "auto.id " + this.id +
+                "\ncilindrada " + this.cilindrada +
                 "\nfabricante " + this.fabricante +
                 "\nmodelo " + this.modelo +
+                "\"auto.patenteColor " + Automovil.colorPatente +
                 "\ncolor " + this.color;
     }
 
@@ -99,6 +132,10 @@ public class Automovil {
         return km / (this.capacidadTanque * (porcentajeBencina / 100f));
     }
 
+    public static float calcularConsumoEstatico(int km, int porcentajeBencina) {
+        return km / (Automovil.capacidadEstanqueEstatico * (porcentajeBencina / 100f));
+    }
+
     @Override
     public boolean equals(Object obj) {
 
@@ -117,6 +154,6 @@ public class Automovil {
 
     @Override
     public String toString() {
-        return fabricante + " " +  modelo;
+        return this.id + fabricante + " " +  modelo;
     }
 }
