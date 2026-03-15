@@ -6,9 +6,9 @@ public class EjemploAutomovil {
 
         auto.setCilindrada(11.5);
 
-        Automovil nissan = new Automovil("Nissan", "Navara", "Gris oscuro", 3.55, 50);
+        Automovil nissan = new Automovil("Nissan", "Navara", Color.GRIS, 3.55, 50);
 
-        Automovil nissan2 = new Automovil("Nissan", "Navara", "Gris oscuro", 3.55, 50);
+        Automovil nissan2 = new Automovil("Nissan", "Navara", Color.AZUL, 3.55, 50);
 
         Automovil auto2 = new Automovil();
         Date fecha = new Date();
