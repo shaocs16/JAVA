@@ -3,12 +3,14 @@ public class Automovil {
     private int id;
     private String fabricante;
     private String modelo;
-    private String color;
+    private Color color = Color.GRIS;
     private double cilindrada;
     private int capacidadTanque = 40;
 
+    private  TipoAutomovil tipo;
+
     // Hace que todos los nuevos objetos se creen tenga este atributo
-    private static String colorPatente = "Naranja";
+    private static Color colorPatente = Color.NARANJA;
     private static int capacidadEstanqueEstatico = 30;
     private static int ultimoId;
 
@@ -32,17 +34,17 @@ public class Automovil {
         this.modelo = modelo;
     }
 
-    public Automovil(String fabricante, String modelo, String color) {
+    public Automovil(String fabricante, String modelo, Color color) {
         this(fabricante, modelo);
         this.color = color;
     }
 
-    public Automovil(String fabricante, String modelo, String color, double cilindrada) {
+    public Automovil(String fabricante, String modelo, Color color, double cilindrada) {
         this(fabricante,modelo,color);
         this.cilindrada = cilindrada;
     }
 
-    public Automovil(String fabricante, String modelo, String color, double cilindrada, int capacidadTanque) {
+    public Automovil(String fabricante, String modelo, Color color, double cilindrada, int capacidadTanque) {
         this(fabricante,modelo,color,cilindrada);
         this.capacidadTanque = capacidadTanque;
     }
@@ -63,11 +65,11 @@ public class Automovil {
         this.modelo = modelo;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 
@@ -87,11 +89,11 @@ public class Automovil {
         this.cilindrada = cilindrada;
     }
 
-    public static String getColorPatente() {
+    public static Color getColorPatente() {
         return colorPatente;
     }
 
-    public static void setColorPatente(String colorPatente) {
+    public static void setColorPatente(Color colorPatente) {
         Automovil.colorPatente = colorPatente;
     }
 
@@ -111,13 +113,22 @@ public class Automovil {
         this.id = id;
     }
 
+    public TipoAutomovil getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoAutomovil tipo) {
+        this.tipo = tipo;
+    }
+
     public String detalle() {
         return "auto.id " + this.id +
                 "\ncilindrada " + this.cilindrada +
                 "\nfabricante " + this.fabricante +
                 "\nmodelo " + this.modelo +
                 "\"auto.patenteColor " + Automovil.colorPatente +
-                "\ncolor " + this.color;
+                "\ncolor " + this.color +
+                "\ntipo " + this.getTipo().getDescripcion();
     }
 
     public String acelerar(int rpm) {
