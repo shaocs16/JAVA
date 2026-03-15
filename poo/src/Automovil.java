@@ -114,6 +114,9 @@ public class Automovil {
     }
 
     public Tanque getTanque() {
+        if(tanque == null) {
+            this.tanque = new Tanque();
+        }
         return tanque;
     }
 
@@ -146,13 +149,22 @@ public class Automovil {
     }
 
     public String detalle() {
-        return "auto.id " + this.id +
-                "\ncilindrada " + this.motor.getCilindrada() +
-                "\nfabricante " + this.fabricante +
+        String detalle = "auto.id " + this.id;
+
+        if(this.motor != null) {
+            detalle += "\ncilindrada " + this.motor.getCilindrada();
+        }
+
+        detalle += "\nfabricante " + this.fabricante +
                 "\nmodelo " + this.modelo +
                 "\"auto.patenteColor " + Automovil.colorPatente +
-                "\ncolor " + this.color +
-                "\ntipo " + this.getTipo().getDescripcion();
+                "\ncolor " + this.color;
+
+        if(this.getTipo().getDescripcion() != null) {
+            detalle += "\ntipo " + this.getTipo().getDescripcion();
+        }
+
+        return detalle;
     }
 
     public String acelerar(int rpm) {
@@ -170,11 +182,11 @@ public class Automovil {
     }
 
     public float calcularConsumo(int km, float porcentajeBencina) {
-        return km / (this.tanque.getCapacidad() * porcentajeBencina);
+        return km / (this.getTanque().getCapacidad() * porcentajeBencina);
     }
 
     public float calcularConsumo(int km, int porcentajeBencina) {
-        return km / (this.tanque.getCapacidad() * (porcentajeBencina / 100f));
+        return km / (this.getTanque().getCapacidad() * (porcentajeBencina / 100f));
     }
 
     public static float calcularConsumoEstatico(int km, int porcentajeBencina) {

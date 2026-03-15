@@ -14,6 +14,7 @@ public class EjemploAutomovilStatic {
         Automovil mazda = new Automovil("Mazda", "Ranger");
         mazda.setMotor(new Motor(2.0, TipoMotor.BENCINA));
         mazda.setTipo(TipoAutomovil.COUPE);
+        //mazda.setTanque(new Tanque());
         System.out.println("mazda.fabricante " + mazda.getFabricante());
 
         Automovil nissan = new Automovil("Nissan", "Navara", Color.GRIS, new Motor(4.0, TipoMotor.BENCINA));
@@ -26,7 +27,7 @@ public class EjemploAutomovilStatic {
         Automovil.setColorPatente(Color.AMARILLO);
 
         Automovil auto2 = new Automovil();
-        auto2.setTipo(TipoAutomovil.COUPE);
+        //auto2.setTipo(TipoAutomovil.COUPE);
         auto2.setTanque(new Tanque(50));
 
         System.out.println(subaru.detalle() + "\n");
@@ -39,6 +40,8 @@ public class EjemploAutomovilStatic {
         TipoAutomovil tipoSubaru = subaru.getTipo();
         System.out.println("tipo subaru: " + tipoSubaru.getNombre());
         System.out.println("tipo subaru: " + tipoSubaru.getDescripcion());
+
+        System.out.println(mazda.calcularConsumo(300, 70));
 
     }
 }
