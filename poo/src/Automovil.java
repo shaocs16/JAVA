@@ -7,6 +7,8 @@ public class Automovil {
     private double cilindrada;
     private int capacidadTanque = 40;
 
+    private  TipoAutomovil tipo;
+
     // Hace que todos los nuevos objetos se creen tenga este atributo
     private static Color colorPatente = Color.NARANJA;
     private static int capacidadEstanqueEstatico = 30;
@@ -16,11 +18,11 @@ public class Automovil {
     public static final Integer VELOCIDAD_MAXIMA_CARRETERA = 120;
     public static final int VELOCIDAD_MAXIMA_CIUDAD = 60;
 
-//    public static final String COLOR_ROJO = "Rojo";
-//    public static final String COLOR_AMARILLO = "Amarillo";
-//    public static final String COLOR_AZUL = "Azul";
-//    public static final String COLOR_BLANCO = "Blanco";
-//    public static final String COLOR_GRIS = "Gris Oscuro";
+    public static final String COLOR_ROJO = "Rojo";
+    public static final String COLOR_AMARILLO = "Amarillo";
+    public static final String COLOR_AZUL = "Azul";
+    public static final String COLOR_BLANCO = "Blanco";
+    public static final String COLOR_GRIS = "Gris Oscuro";
 
     public Automovil() {
         this.id = ++ultimoId;
@@ -111,13 +113,22 @@ public class Automovil {
         this.id = id;
     }
 
+    public TipoAutomovil getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoAutomovil tipo) {
+        this.tipo = tipo;
+    }
+
     public String detalle() {
         return "auto.id " + this.id +
                 "\ncilindrada " + this.cilindrada +
                 "\nfabricante " + this.fabricante +
                 "\nmodelo " + this.modelo +
                 "\"auto.patenteColor " + Automovil.colorPatente +
-                "\ncolor " + this.color;
+                "\ncolor " + this.color +
+                "\ntipo " + this.getTipo().getDescripcion();
     }
 
     public String acelerar(int rpm) {
