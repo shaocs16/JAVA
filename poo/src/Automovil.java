@@ -164,6 +164,18 @@ public class Automovil {
             detalle += "\ntipo " + this.getTipo().getDescripcion();
         }
 
+        if(this.conductor != null) {
+            detalle += "\nConductor subaru " + this.getConductor();
+        }
+
+        if(getRuedas() != null) {
+            detalle += "\nRuedas del automovil: ";
+            for(Rueda r: this.getRuedas()) {
+                detalle += "\n" + r.getFabricante() + ", aro " + r.getAro() + ", ancho " + r.getAncho();
+            }
+        }
+
+
         return detalle;
     }
 
